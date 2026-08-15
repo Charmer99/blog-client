@@ -8,14 +8,6 @@ const app = express();
 
 const API_BASE_URL = process.env.API_BASE_URL;
 
-const express = require("express")
-const path = require("path")
-const axios = require("axios")
-
-const app = express();
-
-const API_BASE_URL = process.env.API_BASE_URL;
-
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
 
