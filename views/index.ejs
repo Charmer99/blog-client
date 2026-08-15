@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+<link rel="stylesheet" href="/styles.css"></link>
+
+</head>
+
+<body>
+
+  <h1>My Blog</h1>
+
+  <% if (posts.length > 0) { %>
+    <% posts.forEach(post => { %>
+      <article>
+        <h2>
+          <a href="/posts/<%= post.id %>">
+              <%= post.title %>
+          </a>
+        </h2>
+
+        <p><%= post.content.substring(0, 150) %>...</p>
+        
+        <a href="/posts/<%= post.id %>">Read more →</a>
+      </article>
+    <% }) %>
+  <% } else { %>
+    <article>
+      <p style="color: #64748b; font-style: italic;">No posts yet. Check back soon!</p>
+    </article>
+  <% } %>
+
+</body>
+</html>

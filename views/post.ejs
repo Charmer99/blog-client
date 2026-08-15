@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= post.title %></title>
+<link rel="stylesheet" href="/styles.css"></link>
+
+</head>
+
+<body>
+
+
+  <h1><%= post.title %></h1>
+
+<p><%= post.content %></p>
+
+<section class="comments-section">
+  <h2>Comments</h2>
+
+  <% if (comments.length > 0) { %>
+    <% comments.forEach(comment => { %>
+      <div class="comment">
+        <div class="comment-author"><%= comment.username %></div>
+        <div class="comment-content"><%= comment.content %></div>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p style="color: #64748b; font-style: italic;">No comments yet. Be the first to comment!</p>
+  <% } %>
+
+  <h2>Leave a comment</h2>
+
+  <form action="/posts/<%= post.id %>/comments" method="POST">
+    <label for="username">Your Name</label>
+    <input
+      id="username"
+      type="text"
+      name="username"
+      placeholder="Enter your name"
+      required
+    >
+
+    <label for="comment">Your Comment</label>
+    <textarea
+      id="comment"
+      name="content"
+      placeholder="Share your thoughts..."
+      required
+    ></textarea>
+
+    <button type="submit">Post Comment</button>
+  </form>
+</section>
+
+<a href="/" class="back-link">← Back to posts</a>
+
+</body>
+</html>
